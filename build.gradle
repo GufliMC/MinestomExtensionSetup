@@ -1,0 +1,41 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'com.guflimc.minestom'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.9.0'
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'com.guflimc.minestom.extensionsetup'
+            implementationClass = 'com.guflimc.minestom.extensionsetup.MinestomExtensionSetupPlugin'
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Jorisg"
+            url = uri("https://repo.jorisg.com/snapshots")
+            credentials(org.gradle.api.credentials.PasswordCredentials)
+        }
+    }
+
+    publications {
+        snapshot(MavenPublication) {
+            from components.java
+            artifactId = 'extensionsetup'
+        }
+    }
+}
