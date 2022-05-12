@@ -7,17 +7,22 @@ A gradle plugin that generates `extension.json` by a gradle configuration.
 ### Gradle
 
 #### Setup
+
+Replace `+` with a specific version if you don't want to use the latest version.
 ```
-buildscript {
+plugins {
+    id 'com.guflimc.minestom.extensionsetup' version '+'
+}
+```
+
+Place this in the `settings.gradle` if you want snapshot versions.
+```
+pluginManagement {
     repositories {
+        gradlePluginPortal()
         maven { url "https://repo.jorisg.com/snapshots" }
     }
-    dependencies {
-        classpath 'com.guflimc.minestom:extensionsetup:1.0-SNAPSHOT'
-    }
 }
-
-apply plugin: com.guflimc.minestom.extensionsetup.MinestomExtensionSetupPlugin
 ```
 
 #### Dependencies

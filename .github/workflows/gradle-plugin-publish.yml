@@ -19,6 +19,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        fetch-depth: '0'
     - name: Publish package
       uses: gradle/gradle-build-action@v2
       with:
