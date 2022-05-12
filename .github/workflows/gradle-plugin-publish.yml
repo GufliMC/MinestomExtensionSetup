@@ -2,7 +2,7 @@ name: Gradle publish plugin
 
 on:
   push:
-    tags: *
+    tags: [*]
 
 jobs:
   test:
