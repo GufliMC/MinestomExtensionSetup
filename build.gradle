@@ -16,6 +16,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
 }
 
+// configure gradle plugin
 gradlePlugin {
     plugins {
         extensionSetup {
@@ -34,6 +35,8 @@ pluginBundle {
 }
 
 // publish snapshots to jorisg repo
+publish.onlyIf { version.contains('-SNAPSHOT') }
+
 publishing {
     repositories {
         maven {
