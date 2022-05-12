@@ -1,10 +1,12 @@
 plugins {
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '1.0.0-rc-1'
+    id 'pl.allegro.tech.build.axion-release' version '1.13.6'
 }
 
 group 'com.guflimc.minestom'
-version '1.0-SNAPSHOT'
+version = scmVersion.version
 
 repositories {
     mavenCentral()
@@ -16,13 +18,22 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        simplePlugin {
+        extensionSetup {
             id = 'com.guflimc.minestom.extensionsetup'
             implementationClass = 'com.guflimc.minestom.extensionsetup.MinestomExtensionSetupPlugin'
+            displayName = 'Minestom Extension Setup'
+            description = 'A gradle plugin for minestom that generates the extension.json from the build file'
         }
     }
 }
 
+pluginBundle {
+    website = 'https://github.com/GufliMC/MinestomExtensionSetup'
+    vcsUrl = 'https://github.com/GufliMC/MinestomExtensionSetup'
+    tags = ['minestom', 'extension', 'setup', 'minecraft', 'plugin']
+}
+
+// publish snapshots to jorisg repo
 publishing {
     repositories {
         maven {
