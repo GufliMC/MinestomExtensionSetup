@@ -1,4 +1,4 @@
-name: Gradle test and publish
+name: Gradle test and publish snapshot
 
 on:
   push:
