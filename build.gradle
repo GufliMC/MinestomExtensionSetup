@@ -45,11 +45,4 @@ publishing {
             credentials(org.gradle.api.credentials.PasswordCredentials)
         }
     }
-
-    publications {
-        snapshot(MavenPublication) {
-            from components.java
-            artifactId = 'extensionsetup'
-        }
-    }
 }
