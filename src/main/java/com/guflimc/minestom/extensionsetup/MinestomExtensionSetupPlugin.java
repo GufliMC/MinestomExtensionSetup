@@ -60,7 +60,7 @@ public class MinestomExtensionSetupPlugin implements Plugin<Project> {
     private void defaults(Project project) {
         // set defaults
         if (config.name == null) {
-            config.name = project.getName();
+            config.name = project.getRootProject().getName();
         }
         if (config.version == null) {
             config.version = project.getVersion().toString();
